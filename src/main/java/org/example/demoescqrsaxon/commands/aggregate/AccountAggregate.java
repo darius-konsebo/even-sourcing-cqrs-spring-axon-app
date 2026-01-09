@@ -11,7 +11,9 @@ import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
+import org.example.demoescqrsaxon.commands.commands.AddAccountCommand;
 import org.example.demoescqrsaxon.enums.AccountStatus;
+import org.example.demoescqrsaxon.events.AccountCreatedEvent;
 
 @Aggregate
 //@Entity
@@ -31,7 +33,7 @@ public class AccountAggregate {
     }
 
     @CommandHandler
-    public AccountAggregate(CreateAccountCommand command) {
+    public AccountAggregate(AddAccountCommand command) {
         log.info("CreateAccount Command Received");
         if (command.getInitialBalance()<0) throw  new IllegalArgumentException("Balance negative exception");
         AggregateLifecycle.apply(new AccountCreatedEvent(

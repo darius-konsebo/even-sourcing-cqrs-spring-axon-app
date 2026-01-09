@@ -1,6 +1,13 @@
 package org.example.demoescqrsaxon.events;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.example.demoescqrsaxon.enums.AccountStatus;
 
-public record AccountCreatedEvent(String accountId, double initialBalance, String currency, AccountStatus accountStatus) {
+@Getter @AllArgsConstructor
+public class AccountCreatedEvent {
+    String accountId;
+    double initialBalance;
+    AccountStatus accountStatus;
+    String currency;
 }

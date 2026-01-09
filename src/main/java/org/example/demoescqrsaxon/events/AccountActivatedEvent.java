@@ -2,10 +2,10 @@ package org.example.demoescqrsaxon.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.example.demoescqrsaxon.enums.AccountStatus;
 
 @Getter @AllArgsConstructor
-public class AccountCreditedEvent {
+public class AccountActivatedEvent {
     String accountId;
-    double amout;
-    String currency;
+    AccountStatus accountStatus;
 }
